@@ -1,0 +1,50 @@
+This is the extension of function of compose of sklearn library used for transform the categorical text data into binary form.
+It has following keyword to apply with sklearn library.
+class sklearn.compose.ColumnTransformer(transformers, *, remainder='passthrough', sparse_threshold=0.3, n_jobs=None, transformer_weights=None, verbose=False)
+
+Only applies transformers to columns of an array or pandas DataFrame.
+
+This is useful for heterogeneous or columnar data, to combine several feature extraction mechanisms or transformations into a single transformer.
+ColumnTransformer, which will basically combine LabelEncoding and OneHotEncoding into just one line of code. And the result is exactly the same.
+
+It has following parameters :
+
+1. transformerslist of tuples - List of (name, transformer, columns) tuples specifying the transformer objects to be applied to subsets of the data.
+
+2. remainder{‘drop’, ‘passthrough’} or estimator, default=’drop’
+
+3. sparse_thresholdfloat, default=0.3
+
+4. n_jobsint, default=None
+
+5. transformer_weightsdict, default=None
+
+6. verbosebool, default=False
+
+Example: 
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Sep 14 22:15:01 2021
+
+@author: Rajeev Kumar Sharma
+"""
+
+# Importing Numerical and dataframe library 
+
+import numpy as np
+import pandas as pd
+
+# Importing dataset file sample.csv in dataset dataframe variable
+dataset = pd.read_csv("sample.csv")
+
+# Importing sklearn preprocessing and compose library function such as OneHotEncoder and ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+# Applying columnTransformer to given dataset for categorical text data given in sample.csv
+columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(), [1])], remainder='passthrough')
+dataset = np.array(columnTransformer.fit_transform(dataset), dtype = np.str)
+
+# Happy Ending
