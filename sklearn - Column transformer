@@ -42,7 +42,7 @@ dataset = pd.read_csv("sample.csv")
 output: 
  	index 	Name 	Number 	Text 	Bool
 0 	0 	Ashish 	456.0 	text2 	no
-1 	1 	name3 	NaN 	  text3 	yes
+1 	1 	name3 	NaN 	 text3 	yes
 2 	2 	Ashish 	123.0 	text4 	yes
 3 	3 	name3 	789.0 	text5 	no
 4 	4 	name1 	987.0 	text6 	no
