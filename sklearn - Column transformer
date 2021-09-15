@@ -39,6 +39,14 @@ import pandas as pd
 # Importing dataset file sample.csv in dataset dataframe variable
 dataset = pd.read_csv("sample.csv")
 
+output: 
+ 	index 	Name 	Number 	Text 	Bool
+0 	0 	Ashish 	456.0 	text2 	no
+1 	1 	name3 	NaN 	  text3 	yes
+2 	2 	Ashish 	123.0 	text4 	yes
+3 	3 	name3 	789.0 	text5 	no
+4 	4 	name1 	987.0 	text6 	no
+
 # Importing sklearn preprocessing and compose library function such as OneHotEncoder and ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
@@ -46,5 +54,13 @@ from sklearn.compose import ColumnTransformer
 # Applying columnTransformer to given dataset for categorical text data given in sample.csv
 columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(), [1])], remainder='passthrough')
 dataset = np.array(columnTransformer.fit_transform(dataset), dtype = np.str)
+
+Output:
+array([['1.0', '0.0', '0.0', '0', '456.0', 'text2', 'no'],
+       ['0.0', '0.0', '1.0', '1', 'nan', 'text3', 'yes'],
+       ['1.0', '0.0', '0.0', '2', '123.0', 'text4', 'yes'],
+       ['0.0', '0.0', '1.0', '3', '789.0', 'text5', 'no'],
+       ['0.0', '1.0', '0.0', '4', '987.0', 'text6', 'no'],
+       ['0.0', '1.0', '0.0', '5', '753.0', 'text7', 'yes']], dtype='<U5')
 
 # Happy Ending
