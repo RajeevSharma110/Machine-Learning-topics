@@ -1,3 +1,5 @@
+# Coding and documentations are to be credited to myself, Rajeev Sharma.
+
 This is the extension of function of compose of sklearn library used for transform the categorical text data into binary form.
 It has following keyword to apply with sklearn library.
 class sklearn.compose.ColumnTransformer(transformers, *, remainder='passthrough', sparse_threshold=0.3, n_jobs=None, transformer_weights=None, verbose=False)
